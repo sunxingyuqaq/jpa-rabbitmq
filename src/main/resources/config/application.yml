@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Gepoint
+    url: jdbc:mysql://localhost/jpa?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    type: com.zaxxer.hikari.HikariDataSource
+  jpa:
+    database: mysql
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  rabbitmq:
+    host: 118.24.118.135
+    username: sxy
+    password: sxy
+    virtual-host: /
+    port: 5672
+    cache:
+      channel:
+        size: 20
+    publisher-confirms: true
+    publisher-returns: true
+    template:
+      mandatory: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+    connection-timeout: 5000
